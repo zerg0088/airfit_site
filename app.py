@@ -30,14 +30,14 @@ templates.env.globals['my_url_for'] = my_url_for
 #     response = RedirectResponse(url='/main.html')
 #     return response
 
-@app.get("/main", response_class=HTMLResponse) 
+@app.get("/", response_class=HTMLResponse) 
 def main(request: Request): 
 	return templates.TemplateResponse("main.html", {"request": request}) 
 
 
-# @app.get("/project", response_class=HTMLResponse) 
-# def project(request: Request): 
-# 	return templates.TemplateResponse("project.html", {"request": request}) 
+@app.get("/test", response_class=HTMLResponse) 
+def test(request: Request): 
+	return templates.TemplateResponse("test.html", {"request": request}) 
 
 
 # @app.get("/contact", response_class=HTMLResponse) 
