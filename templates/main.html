@@ -64,6 +64,7 @@
         console.log("ready");
 
         $('#gnb_wrapper').hide();
+        $('#bottom_arrow_wrapper').hide();
         $('#logo_img').click(function() {
             location.href = "/map"
         });
@@ -87,15 +88,23 @@
             $(item).height(maxHeight);
         });
 
-        // section 2 나타나기 시작하면 gnb 나오게 하기. scroll 로 계산.
+        $('.checkbox').click(function() {
+            if($(this).hasClass('checked')) {
+                $(this).removeClass('checked');
+            } else {
+                $(this).addClass('checked');
+            }
+            
+        });
     
         $(window).scroll(function(){
             var scrollY = $('body').scrollTop();
             if ($('#section_2').position().top < scrollY) {
                 $('#gnb_wrapper').show();
-                console.log("hihi");
+                $('#bottom_arrow_wrapper').show();
             } else {
                 $('#gnb_wrapper').hide();
+                $('#bottom_arrow_wrapper').hide();
             }
         });
         
@@ -702,6 +711,10 @@
             border: 2px solid white;
         }
 
+        input[type="checkbox"] {
+            display: none;
+        }
+
         a.button{            
             font-weight: 400;
             font-size: 16px;
@@ -710,7 +723,6 @@
             cursor: pointer;
 
             background-color: #0067FF;
-            border: 2px solid #0067FF;
             
             text-align: center;
             display: inline-block;
@@ -718,13 +730,43 @@
         }
         
         a.button:hover {
-            background-color: white;
-            color: black;
+            background-color: #C3C3C3;
+            color: white;
         }
 
         #section_7 {
             height: auto;
         }
+        
+        .checkbox {
+            width: 22px;
+            height: 22px;
+            background-color: #C3C3C3;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .checkbox img {
+            padding-top:5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .checked {
+            background: #0067FF;
+        }
+        label {
+            margin-left: 8px;
+            align-self: center;
+            display: inline-block;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #FFFFFF;
+        }
+
     </style>
     <section id="section_7" style="background-image: url('{{my_url_for(request, 'static', path='/images/section_7.png')}}');background-size:cover">
 
@@ -752,18 +794,13 @@
                         <span class="light_span">이메일</span>
                         <input id="input_email" type="email" name="email" style="height: 52px; margin-top:10px; margin-bottom:24px" value="" placeholder="이메일을 입력해주세요" required="" aria-required="true" pattern="^.+@.+\.[a-zA-Z]{2,63}$" maxlength="250" aria-invalid="false">
                         <span class="light_span">문의내용</span>
-                        <textarea id="input_content" style="height: 132px; margin-bottom:10px;margin-top:10px" placeholder="내용을 입력해주세요" aria-required="false" aria-invalid="true" ></textarea>
+                        <textarea id="input_content" style="height: 132px; margin-bottom:25px;margin-top:10px" placeholder="내용을 입력해주세요" aria-required="false" aria-invalid="true" ></textarea>
                         <div style="display: flex;">
-                            <input style="width:22px; height:22px" type="checkbox" id="scales" name="scales">
-                            <label style="
-                            align-self: center;
-                            display: inline-block;
-                            font-style: normal;
-                            font-weight: 400;
-                            font-size: 16px;
-                            line-height: 20px;
-                            color: #FFFFFF;
-                            ">이메일 수집에 동의합니다.</label>
+                            <input type="checkbox">
+                            <div class="checkbox">
+                                <img src="{{ my_url_for(request, 'static', path='/images/check.svg')}}"/>
+                            </div>
+                            <label>이메일 수집에 동의합니다.</label>
                         </div>
                         <a id="send_email" class="button" style="width: 200px;height: 48px;margin-top:30px">SEND EMAIL</a>
                     </div>
