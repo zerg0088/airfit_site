@@ -12,6 +12,7 @@ app = FastAPI()
 
 def my_url_for(request: Request, name: str, **path_params: any) -> str:
     url = request.url_for(name, **path_params)
+    print(url)
     parsed = list(urllib.parse.urlparse(url))
     parsed[1] = '52.79.233.189' 
     # parsed[1] = '127.0.0.1:8000'  # Change the domain name    
