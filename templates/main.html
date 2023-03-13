@@ -37,167 +37,6 @@
         background-color: white;
     }
     
-    /*
-    li.active {
-        border: solid;
-        border-color: black;
-        border-width: 1px;
-        padding: 10px;
-    }
-
-    .about_top {
-        width: 1280px;
-        background-color: white;
-        height: auto;
-        padding-top:128px;
-        margin: 0 auto;
-    }
-
-    .about_title {
-        color: black;
-        font-weight: 800;
-        font-size: 90px;
-        line-height: 108px;
-        text-align: center;
-        margin-bottom: 80px;
-        display:block;
-    }
-
-    .press_title {
-        color:black;
-        font-size: 90px;
-        line-height: 108px;
-        display: block;
-        text-align: center;
-    }
-
-    .about_content {
-        margin-top: 93px;
-        text-align: left;
-        display:block;
-        line-height: 40px;
-        font-size: 21px;
-        line-height: 40px;
-        text-align: justify;
-        color: #2E2E2E;
-    }
-    
-    .about_youtube_wrapper {
-        width: 1280px;
-        background-color: white;
-        margin: 0 auto;
-    }
-
-    .about_youtube_wrapper_row {
-        width: 100%;
-        display: flex;
-        margin: 0 auto;
-    }
-
-    .dummy {
-        height: 425px;
-    }
-
-    .topnav {
-        overflow: hidden;
-        background-color: white;
-        height: 157px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .topnav a {
-        font-size: 22px;
-        line-height: 26px;
-
-        color: #2E2E2E;
-        margin-right: 153px;
-    }
-
-    .topnav img {
-        margin-left: 5%;
-        width : 280px;
-        height: 106px;
-        align-self: center;
-    }
-
-    #menu_text_wrapper {
-        inherits: true;
-        flex: none;
-        align-self: center;
-    }
-    .top_menu:hover {
-        background-color: #ddd;
-        color: black;
-    }
-
-    .top_menu:active {
-        color: #0064FF;
-    }
-  
-    .youtube_title {
-        color: black;
-        text-align: left;
-        margin-bottom: 39px;
-        display:block;    
-        font-size: 46px;
-        line-height: 55px;
-    }
-
-    .youtube_subtitle {
-        display:block;
-        font-size: 21px;
-        line-height: 36px;
-        color: #383838;
-    }
-
-    .press_span {
-        display: block;
-        text-align: center;
-        font-size: 21px;
-        line-height: 25px;
-        text-align: center;
-        color: #2E2E2E;
-    }
-
-    .bottom_span {
-        color: white;
-        text-align: left;
-        display: block;
-        font-size: 16px;
-        line-height: 19px;
-    }
-
-    b {
-        margin-right: 44px;    
-        font-size: 16px;
-        line-height: 19px;
-    }
-
-
-    a.button{
-        width: 198px;
-        height: 54px;
-        font-size: 22px;
-        line-height: 26px;
-        text-decoration-line: underline;
-        padding-top:12px;
-        cursor: pointer;
-        background-color: #62B5A9;
-        color: white;
-        border: 2px solid #62B5A9;
-        text-align: center;
-        display: block;
-        margin: 0 auto;
-        margin-top: 34px;
-
-    }
-    
-    a.button:hover {
-        background-color: white;
-        color: #62B5A9;
-    }*/
 </style>
 
 <script type="text/javascript">
@@ -211,9 +50,19 @@
         $(".carousel_cell").each(function (index, item) {
             $(item).height(maxHeight);
         });*/
+        
+        $('body').css({
+            "width": window.innerWidth,
+        });
+        console.log("resize");
     });
 
     $( window ).ready( function() {
+        $('body').css({
+            "width": window.innerWidth,
+        });
+        console.log("ready");
+
         $('#gnb_wrapper').hide();
         $('#logo_img').click(function() {
             location.href = "/map"
@@ -299,10 +148,23 @@
         align-items: center;
     }
     /** section 1 **/
+
+    #section_1 {
+        background-image: url('{{my_url_for(request, "static", path="/images/section_1.png")}}');
+        background-size:cover;
+    }
+
+    #section1_trans {
+        width:100%; 
+        height:100%; 
+        background-color: rgba(0, 0, 0, 0.6);
+        display:flex;
+        justify-content: center; 
+        align-self: center; 
+        flex-direction: column;
+    }
     #section1_span_wrapper {
-        width: 95%;
-        position:absolute; 
-        left: 5%;
+        margin-left: 5%;
     }
 
     #section1_text1 {
@@ -327,6 +189,11 @@
     }
 
     /** section 2 **/
+    #section_2 {
+        height: auto;
+        padding-top:128px;
+        padding-bottom:128px;
+    }
     #section_2 span {
         font-weight: 700;
         font-size: 120px;
@@ -511,15 +378,14 @@
         <img src="{{ my_url_for(request, 'static', path='/images/top_arrow.svg')}}" alt="">
     </div>
     <section id="section_1">
-        <div style="width:100%; height: 100%; background-color: #111119; position:absolute"></div>
-        <img style="width:100%; position:absolute" src="{{ my_url_for(request, 'static', path='/images/section_1.png')}}"/>
-        <div style="width:100%; height: 100%; background-color:  rgba(0, 0, 0, 0.6); position:absolute"></div>
-
-        <div id="section1_span_wrapper">
-            <span id="section1_text1">Artificial Intelligence</span>
-            <span id="section1_text2">WE ARE AIR-FIT</span>
-            <span id="section1_text3">지속 가능한 미래를 위한 인텔리전스: AI 기반 환경 모니터링 및 분석을 통해 지속가능한 미래 가치를 창출 합니다.</span>
+        <div id="section1_trans" >
+            <div id="section1_span_wrapper">
+                <span id="section1_text1">Artificial Intelligence</span>
+                <span id="section1_text2">WE ARE AIR-FIT</span>
+                <span id="section1_text3">지속 가능한 미래를 위한 인텔리전스: AI 기반 환경 모니터링 및 분석을 통해 지속가능한 미래 가치를 창출 합니다.</span>
+            </div>
         </div>
+        
     </section>
 
     <section id="section_2" style="background-color: white;">

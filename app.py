@@ -12,7 +12,6 @@ app = FastAPI()
 
 def my_url_for(request: Request, name: str, **path_params: any) -> str:
     url = request.url_for(name, **path_params)
-    print(url)
     parsed = list(urllib.parse.urlparse(url))
     parsed[1] = '52.79.233.189:80' 
     # parsed[1] = '127.0.0.1:8000'  # Change the domain name    
@@ -34,11 +33,6 @@ templates.env.globals['my_url_for'] = my_url_for
 @app.get("/", response_class=HTMLResponse) 
 def main(request: Request): 
 	return templates.TemplateResponse("main.html", {"request": request}) 
-
-
-@app.get("/test", response_class=HTMLResponse) 
-def test(request: Request): 
-	return templates.TemplateResponse("test.html", {"request": request}) 
 
 
 # @app.get("/contact", response_class=HTMLResponse) 
