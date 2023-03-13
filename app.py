@@ -13,7 +13,7 @@ app = FastAPI()
 def my_url_for(request: Request, name: str, **path_params: any) -> str:
     url = request.url_for(name, **path_params)
     parsed = list(urllib.parse.urlparse(url))
-    parsed[1] = '52.79.233.189:80' 
+    parsed[1] = '52.79.233.189' 
     # parsed[1] = '127.0.0.1:8000'  # Change the domain name    
     # parsed[1] = 'greenoceansdata.kr'  # Change the domain name
     return urllib.parse.urlunparse(parsed)
@@ -30,8 +30,8 @@ templates.env.globals['my_url_for'] = my_url_for
 #     response = RedirectResponse(url='/main.html')
 #     return response
 
-@app.get("/", response_class=HTMLResponse) 
-def about(request: Request): 
+@app.get("/main", response_class=HTMLResponse) 
+def main(request: Request): 
 	return templates.TemplateResponse("main.html", {"request": request}) 
 
 
