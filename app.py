@@ -5,7 +5,6 @@ from fastapi.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles 
 from fastapi import FastAPI
-# import csv
 import urllib
 
 
@@ -15,8 +14,9 @@ def my_url_for(request: Request, name: str, **path_params: any) -> str:
     url = request.url_for(name, **path_params)
     parsed = list(urllib.parse.urlparse(url))
     #parsed[0] = 'https'  # Change the scheme to 'https' (Optional)
-    # parsed[1] = '54.180.121.255'  # Change the domain name
-    parsed[1] = '127.0.0.1:8000'  # Change the domain name    
+    parsed[1] = '52.79.233.189'  # Change the domain name
+    # parsed[1] = '127.0.0.1:8000'  # Change the domain name    
+    
     # parsed[1] = 'greenoceansdata.kr'  # Change the domain name
     return urllib.parse.urlunparse(parsed)
 
