@@ -120,14 +120,6 @@
             }
         });
         
-
-        var maxHeight = Math.max.apply(null, $(".carousel_cell").map(function ()
-        {
-            console.log($(this).height());
-            return $(this).height();
-        }).get());
-        $('.carousel_cell').height(maxHeight);
-
         $("#gnb_wrapper span:eq(0)").click(function() {
             $('body').animate({scrollTop: $('#section_2').position().top }, 500);
         });
