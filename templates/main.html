@@ -21,6 +21,13 @@
         font-weight: normal;
         font-style: normal;
     }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #fff !important;
+    }
 
     * {
         font-family: 'spoqahansansneo';
@@ -40,6 +47,8 @@
 </style>
 
 <script type="text/javascript">
+
+
     $( window ).resize( function() {
         /*
         var maxHeight = Math.max.apply(null, $(".carousel_cell").map(function ()
@@ -54,16 +63,15 @@
         $('body').css({
             "width": window.innerWidth,
         });
-        console.log("resize");
     });
 
     $( window ).ready( function() {
         $('body').css({
             "width": window.innerWidth,
         });
-        console.log("ready");
-
+    
         $('#gnb_wrapper').hide();
+        $('#send_email').attr('disabled', true);
         $('#bottom_arrow_wrapper').hide();
         $('#logo_img').click(function() {
             location.href = "/map"
@@ -91,10 +99,11 @@
         $('.checkbox').click(function() {
             if($(this).hasClass('checked')) {
                 $(this).removeClass('checked');
+                $('#send_email').attr('disabled', true);
             } else {
                 $(this).addClass('checked');
+                $('#send_email').attr('disabled', false);
             }
-            
         });
     
         $(window).scroll(function(){
@@ -128,6 +137,30 @@
         $("#gnb_wrapper span:eq(4)").click(function() {
             $('body').animate({scrollTop: $('#section_6').position().top }, 500);
         });
+
+
+        document.querySelector('form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // 기본 동작 취소
+            const form = event.target;
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData
+            });
+            const result = await response.text();
+            // 응답 결과를 처리하는 함수 호출
+            handleResponse(result);
+        });
+        
+        // 응답 결과 처리 함수
+        function handleResponse(result) {
+            alert("문의사항이 접수 됐습니다.");
+            $('.checkbox').removeClass('checked');
+            $('#send_email').attr('disabled', true);
+            $('#contact_wrapper_right input[type=email]').val("");
+            $('#contact_wrapper_right input[type=text]').val("");
+            $('#contact_wrapper_right textarea').val("");
+        }
     });
 
 
@@ -474,8 +507,8 @@
         /** section 6 **/  
         #section_6 {
             height: auto;
-            padding-top:240px;
-            padding-bottom:240px;
+            padding-top:180px;
+            padding-bottom:180px;
         }
         #section6_title{
             margin-left: 92px;
@@ -490,9 +523,12 @@
             border-left: 1px solid #DDDDDD;
             border-right: 1px solid #DDDDDD;
             padding-top:24px;
-            padding-bottom:40px;
+            padding-bottom:24px;
             padding-left: 12px;
             padding-right:12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
     
         .carousel_cell img {
@@ -520,6 +556,7 @@
             font-weight: 400;
             font-size: 18px;
             line-height: 23px;
+            
             color: #343434;
             word-wrap: break-word;
             width: calc(100% - 24px);
@@ -532,7 +569,7 @@
             line-height: 23px;
             color: #767676;
             margin: 0 auto;
-            margin-top:56px;
+            margin-top:40px;
             width: calc(100% - 24px);
         }
 
@@ -572,7 +609,7 @@
         <span class="title" style="color:black">PARTNERSHIP</span>
         <span id="section5_content">에어핏은 안정적인  기술력으로 글로벌 협력사와 함께하고 있습니다</span>
         <div id="logo_wrapper">
-            <img src="{{ my_url_for(request, 'static', path='/images/logo_green.png')}}" alt="green">
+            <!-- <img src="{{ my_url_for(request, 'static', path='/images/logo_green.png')}}" alt="green"> -->
             <img src="{{ my_url_for(request, 'static', path='/images/logo_snu.png')}}" alt="snu">
             <img src="{{ my_url_for(request, 'static', path='/images/logo_han.png')}}" alt="han">
             <img src="{{ my_url_for(request, 'static', path='/images/logo_motov.png')}}" alt="motov">
@@ -585,42 +622,73 @@
 
             <div style="width:calc(100% - 48px); margin:0 auto; margin-top: 48px;border: 1px solid #DDDDDD;">
                 <div class="main-carousel">
+
                     <div class="carousel_cell">
-                        <img src="{{ my_url_for(request, 'static', path='/images/temp_certi.png')}}" />
-                        <span class="carousel_cell_title">특허자료1</span>
-                        <span class="carousel_cell_content">내용입력내용입력내용입력내용입력내용입력내용입력내용입력내용입력내용입력</span>
+                        <div>
+                            <img src="{{ my_url_for(request, 'static', path='/images/t-5.png')}}" />
+                            <span class="carousel_cell_title">기술평가 우수기업 인증서</span>
+                            <span class="carousel_cell_content">T-5 (우수) 인공위성 데이터 수집/분석/가공 서비스</span>
+                        </div>
+                        
+                        <span class="carousel_cell_date">2022.07.20</span>
+                    </div>
+
+                    <div class="carousel_cell">
+                        <div>
+                            <img src="{{ my_url_for(request, 'static', path='/images/0.jpeg')}}" />
+                            <span class="carousel_cell_title">(대상)인공지능 챔피언십 2021</span>
+                            <span class="carousel_cell_content">(대상)인공지능 챔피언십 2021</span>
+                        </div>
                         <span class="carousel_cell_date">2022.08.01</span>
                     </div>
                     
                     <div class="carousel_cell">
-                        <img src="{{ my_url_for(request, 'static', path='/images/temp_certi.png')}}" />
-                        <span class="carousel_cell_title">특허자료1</span>
-                        <span class="carousel_cell_content">내용입력내용입력내용입력내용입력내용입력내용입력내용입력내용입력내용입력</span>
-                        <span class="carousel_cell_date">2022.08.01</span>
+                        <div>
+                            <img src="{{ my_url_for(request, 'static', path='/images/1.png')}}" />
+                            <span class="carousel_cell_title">특허자료 - 1</span>
+                            <span class="carousel_cell_content">보급형 먼지센서를 위한 보정 창치</span>
+                        </div>
+                        <span class="carousel_cell_date">2021.11.25</span>
                     </div>
                     <div class="carousel_cell">
-                        <img src="{{ my_url_for(request, 'static', path='/images/temp_certi.png')}}" />
-                        <span class="carousel_cell_title">특허자료1</span>
-                        <span class="carousel_cell_content"></span>
-                        <span class="carousel_cell_date">2022.08.01</span>
+                        <div>
+                            <img src="{{ my_url_for(request, 'static', path='/images/2.png')}}" />
+                            <span class="carousel_cell_title">특허자료 - 2</span>
+                            <span class="carousel_cell_content">지역 및 계절에 대한 특성이 반영된 농도측정모델 및 농도 추정모델을 이용한 미세먼지농도 측정방법, 장치 및 프로그램</span>
+                        </div>
+                        <span class="carousel_cell_date">2022.07.21</span>
                     </div>
                     <div class="carousel_cell">
-                        <img src="{{ my_url_for(request, 'static', path='/images/temp_certi.png')}}" />
-                        <span class="carousel_cell_title">특허자료1</span>
-                        <span class="carousel_cell_content"></span>
-                        <span class="carousel_cell_date">2022.08.01</span>
+                        <div>
+                            <img src="{{ my_url_for(request, 'static', path='/images/3.png')}}" />
+                            <span class="carousel_cell_title">특허자료 - 3</span>
+                            <span class="carousel_cell_content">위성이미지를 통한 수위, 용적량, 유입량 및 오염도 측정 장치, 방법 및 프로그램</span>
+                        </div>
+                        <span class="carousel_cell_date">2022.03.08</span>
                     </div>
                     <div class="carousel_cell">
-                        <img src="{{ my_url_for(request, 'static', path='/images/temp_certi.png')}}" />
-                        <span class="carousel_cell_title">특허자료1</span>
-                        <span class="carousel_cell_content">내용입력내용입력내용입력내용입력내용입력내용입력내용입력내용입력내용입력</span>
-                        <span class="carousel_cell_date">2022.08.01</span>
+                        <div>
+                            <img src="{{ my_url_for(request, 'static', path='/images/4.png')}}" />
+                            <span class="carousel_cell_title">특허자료 - 4</span>
+                            <span class="carousel_cell_content">위성이미지를 통한 미세먼지농도 측정 장치, 방법 및 프로그램</span>
+                        </div>
+                        <span class="carousel_cell_date">2022.03.08</span>
                     </div>
                     <div class="carousel_cell">
-                        <img src="{{ my_url_for(request, 'static', path='/images/temp_certi.png')}}" />
-                        <span class="carousel_cell_title">특허자료1</span>
-                        <span class="carousel_cell_content">내용입력내용입력내용입력내용입력내용입력내용입력내용입력내용입력내용입력</span>
-                        <span class="carousel_cell_date">2022.08.01</span>
+                        <div>
+                            <img src="{{ my_url_for(request, 'static', path='/images/5.png')}}" />
+                            <span class="carousel_cell_title">특허자료 - 5</span>
+                            <span class="carousel_cell_content">인공지능모델을 이용한 위성이미지를 통해 수위, 용적량, 유입량 및 오염도 측정값 및 추정값을 제공하는 측정 장치, 방법 및 프로그램</span>
+                        </div>
+                        <span class="carousel_cell_date">2022.09.06</span>
+                    </div>
+                    <div class="carousel_cell">
+                        <div>
+                            <img src="{{ my_url_for(request, 'static', path='/images/6.png')}}" />
+                            <span class="carousel_cell_title">특허자료 - 6</span>
+                            <span class="carousel_cell_content">환기 장치를 이용한 실내 공기질 관리 방법 및 장치</span>
+                        </div>
+                        <span class="carousel_cell_date">2022.12.28</span>
                     </div>
                 </div>
             </div>
@@ -629,7 +697,7 @@
     
 
     <style>
-
+    
         #contact_wrapper {
             width: 100%;
             margin: 0 auto;    
@@ -677,7 +745,16 @@
             color: #FFFFFF;
         }
         
-        input[type="text"],input[type="email"] {
+        input[type="text"]{
+            width: 100%;
+            background-color: transparent;
+            box-sizing: border-box;
+            border: 2px solid rgb(232,230,230);
+            color: white;
+            padding-left: 16px;
+        }
+
+        input[type="email"] {
             width: 100%;
             background-color: transparent;
             box-sizing: border-box;
@@ -715,22 +792,26 @@
             display: none;
         }
 
-        a.button{            
+        input[type="submit"] {            
             font-weight: 400;
             font-size: 16px;
             line-height: 48px;
             color: white;
-            cursor: pointer;
-
             background-color: #0067FF;
-            
-            text-align: center;
-            display: inline-block;
             border-radius: 4px;
+            border-width: 0px;
+            cursor: pointer;
         }
         
-        a.button:hover {
+        input[type="submit"]:hover {
             background-color: #C3C3C3;
+            border-color: #C3C3C3;
+            color: white;
+        }
+
+        input[type="submit"]:disabled {
+            background-color: #C3C3C3;
+            border-color: #C3C3C3;
             color: white;
         }
 
@@ -788,13 +869,13 @@
                             color: white;">궁금하신 사항이 있으시면 오른쪽 문의하기를 이용해주세요.<br>담당자가 빠른시일 안에 답변드리겠습니다.</span>
                     
                     </div>
-                    <div id="contact_wrapper_right">
+                    <form id="contact_wrapper_right" action="" method="post">
                         <span class="light_span">제목</span>
                         <input id="input_name" type="text" name="name" style="height: 52px; margin-top:10px;margin-bottom:24px" value="" placeholder="제목을 입력해주세요" aria-required="false" maxlength="100">
                         <span class="light_span">이메일</span>
-                        <input id="input_email" type="email" name="email" style="height: 52px; margin-top:10px; margin-bottom:24px" value="" placeholder="이메일을 입력해주세요" required="" aria-required="true" pattern="^.+@.+\.[a-zA-Z]{2,63}$" maxlength="250" aria-invalid="false">
+                        <input id="input_email" type="email" name="email" style="height: 52px; margin-top:10px; margin-bottom:24px" value="" placeholder="이메일을 입력해주세요" required="" aria-required="true" maxlength="250" aria-invalid="false">
                         <span class="light_span">문의내용</span>
-                        <textarea id="input_content" style="height: 132px; margin-bottom:25px;margin-top:10px" placeholder="내용을 입력해주세요" aria-required="false" aria-invalid="true" ></textarea>
+                        <textarea id="input_content" name="message" style="height: 132px; margin-bottom:25px;margin-top:10px" placeholder="내용을 입력해주세요" aria-required="false" aria-invalid="true"></textarea>
                         <div style="display: flex;">
                             <input type="checkbox">
                             <div class="checkbox">
@@ -802,8 +883,8 @@
                             </div>
                             <label>이메일 수집에 동의합니다.</label>
                         </div>
-                        <a id="send_email" class="button" style="width: 200px;height: 48px;margin-top:30px">SEND EMAIL</a>
-                    </div>
+                        <input type="submit" id="send_email" style="width: 200px;height: 48px;margin-top:30px" value="SEND EMAIL"/>
+                    </form>
                 </div>
         
             </div>
