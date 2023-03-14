@@ -48,6 +48,7 @@
 
 <script type="text/javascript">
 
+    var isReLoad = true;
 
     $( window ).resize( function() {
         /*
@@ -63,6 +64,7 @@
         $('body').css({
             "width": window.innerWidth,
         });
+
     });
 
     $( window ).ready( function() {
@@ -82,18 +84,7 @@
 
         var flky = new Flickity( '.main-carousel', {
             cellAlign: 'left',
-            contain: true,
-            pageDots: false,
-            draggable: false
-        });
-
-        var maxHeight = Math.max.apply(null, $(".carousel_cell").map(function ()
-        {
-            return $(this).height();
-        }).get());
-
-        $(".carousel_cell").each(function (index, item) {
-            $(item).height(maxHeight);
+            pageDots: false
         });
 
         $('.checkbox').click(function() {
@@ -111,12 +102,31 @@
             if ($('#section_2').position().top < scrollY) {
                 $('#gnb_wrapper').show();
                 $('#bottom_arrow_wrapper').show();
+
+                if(isReLoad) {
+                    isReLoad = false;
+                    flky.reloadCells();
+
+                    var maxHeight = Math.max.apply(null, $(".carousel_cell").map(function ()
+                    {
+                        console.log($(this).height());
+                        return $(this).height();
+                    }).get());
+                    $('.carousel_cell').height(maxHeight);
+                }
             } else {
                 $('#gnb_wrapper').hide();
                 $('#bottom_arrow_wrapper').hide();
             }
         });
         
+
+        var maxHeight = Math.max.apply(null, $(".carousel_cell").map(function ()
+        {
+            console.log($(this).height());
+            return $(this).height();
+        }).get());
+        $('.carousel_cell').height(maxHeight);
 
         $("#gnb_wrapper span:eq(0)").click(function() {
             $('body').animate({scrollTop: $('#section_2').position().top }, 500);
