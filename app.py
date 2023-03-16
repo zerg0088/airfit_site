@@ -18,10 +18,10 @@ app = FastAPI()
 def my_url_for(request: Request, name: str, **path_params: any) -> str:
     url = request.url_for(name, **path_params)
     parsed = list(urllib.parse.urlparse(url))
-    # parsed[1] = '52.79.233.189:80' 
+    parsed[1] = '52.79.233.189' 
     # parsed[1] = '127.0.0.1:8000'
     
-    parsed[1] = 'airfit.ai'  # Change the domain name
+    # parsed[1] = 'airfit.ai'  # Change the domain name
     return urllib.parse.urlunparse(parsed)
 
 app.mount("/static", StaticFiles(directory="static"), name="static") 
@@ -42,12 +42,10 @@ async def opinion(name: str = Form(...), email: str = Form(...), message: str = 
     email_message['From'] = sender_email
     email_message['To'] = receiver_email
     email_message.attach(MIMEText(body, 'plain'))
-
-    smtp_server = 'smtp.gmail.com'
-    port = 587
+    
     sender_password = 'rbixkdxqgcqacqrr'
     
-    context = smtplib.SMTP(smtp_server, port)
+    context = smtplib.SMTP('smtp.gmail.com', 587)
     context.ehlo()   
     context.starttls()
     context.login(sender_email, sender_password)
