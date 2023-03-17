@@ -80,7 +80,6 @@
 
                     var maxHeight = Math.max.apply(null, $(".carousel_cell").map(function ()
                     {
-                        console.log($(this).height());
                         return $(this).height();
                     }).get());
                     $('.carousel_cell').height(maxHeight);
@@ -146,7 +145,7 @@
             <img src="{{ my_url_for(request, 'static', path='/images/mini_logo.png')}}"/>
         </div>
 
-        <div id="gnb_wrapper_flex">
+        <div id="gnb_wrapper_flex" >
             <span>SKILL</span>
             <span>DATA VOUCHER</span>
             <span>RPRODUCT</span>
@@ -179,13 +178,14 @@
 
     <section id="section_3">
         <span class="title">DATA VOUCHER</span>
-        <div class="dv_product_wrapper">
+        <div class="dv_product_wrapper" style="flex-direction: row-reverse;">
+            <img src="{{ my_url_for(request, 'static', path='/images/dv1.png')}}"/>
             <div class="product_text_wrapper">
                 <span class="dv_name">DATA VOUCHER1</span>
                 <span class="dv_title">인공위성 수집분석 플랫폼</span>
                 <span class="dv_content">인공위성, 대기환경관측소, 공공데이터를 활용하여 데이터 수집, 전처리, 데이터셋 구축, GIS 기반 모델링 연구 활용 목적의 솔루션 제공</span>
             </div>
-            <img src="{{ my_url_for(request, 'static', path='/images/dv1.png')}}"/>
+            
         </div>
 
         <div class="dv_product_wrapper">
@@ -197,13 +197,14 @@
             </div>
         </div>
 
-        <div class="dv_product_wrapper">
+        <div class="dv_product_wrapper" style="flex-direction: row-reverse;">
+            <img src="{{ my_url_for(request, 'static', path='/images/dv3.png')}}"/>
             <div class="product_text_wrapper">
                 <span class="dv_name">DATA VOUCHER3</span>
                 <span class="dv_title">교통상황 모니터링 플랫폼</span>
                 <span class="dv_content">교통사고 시뮬레이션 이미지와 상황 설명 텍스트 데이터를 활용하여 표준 교통사고 데이터를 추정하는 이미지 및 텍스트 기반의 AI 알고리즘과 분석 솔루션 개발</span>
             </div>
-            <img src="{{ my_url_for(request, 'static', path='/images/dv3.png')}}"/>
+            
         </div>
     </section>
 
@@ -330,7 +331,7 @@
     <section id="section_7" style="background-image: url('{{my_url_for(request, 'static', path='/images/section_7.png')}}');">
         <div>
             <div id="contact_wrapper">
-                <div style="display:flex; flex-direction: row;">
+                <div>
                     <div id="contact_wrapper_left">
                         <span>Contact Us</span>
                         <span>궁금하신 사항이 있으시면 오른쪽 문의하기를 이용해주세요.<br>담당자가 빠른시일 안에 답변드리겠습니다.</span>
@@ -366,7 +367,8 @@
             <div id="footer_span_wrapper">
                 <span>
                     주소<span class="footer_content" style="margin-right:33px">[04779] 서울 성동구 아차산로 38 (개풍빌딩 2층)</span> 
-                    TEL<span class="footer_content">010-9986-6856</span></span>
+                    TEL<span class="footer_content">010-9986-6856</span>
+                </span>
                 <span style="margin-top:10px">
                     대표<span class="footer_content" style="margin-right:33px">김태현</span>
                     사업자<span class="footer_content" style="margin-right:33px">등록번호 660-88-01911</span> 

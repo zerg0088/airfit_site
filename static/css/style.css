@@ -44,7 +44,7 @@ span {
     margin-top: 240px;
 
     overflow:hidden;
-    white-space:nowrap;
+    white-space:wrap;
     text-overflow:ellipsis;
 }   
 
@@ -117,7 +117,7 @@ section {
     margin-top: 28px;
 
     overflow:hidden;
-    white-space:nowrap;
+    white-space:wrap;
     text-overflow:ellipsis;
 }
 
@@ -188,9 +188,6 @@ section {
 
 #section_4 > .title {
     color:black;
-    overflow:hidden;
-    white-space:nowrap;
-    text-overflow:ellipsis;
 }
 
 /** section 5 **/
@@ -206,9 +203,6 @@ section {
 
 #section_5 > .title {
     color:black;
-    overflow:hidden;
-    white-space:nowrap;
-    text-overflow:ellipsis;
 }
 
 #section5_content {
@@ -239,6 +233,7 @@ section {
 #gnb_wrapper {
     position: fixed;
     left: 5%;
+    margin-right: 5%;
     top: 40px;
     padding-top: 14px;
     padding-bottom: 14px;
@@ -432,6 +427,11 @@ section {
 #contact_wrapper_left {
     padding-left: 92px;
     width:50%;
+}
+
+#contact_wrapper > div {
+    display:flex; 
+    flex-direction: row;
 }
 
 #contact_wrapper_left > span:nth-child(1) {
