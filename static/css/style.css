@@ -42,6 +42,10 @@ span {
     font-size: 96px;
     line-height: 120px;
     margin-top: 240px;
+
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }   
 
 section {
@@ -111,6 +115,10 @@ section {
     width: 100%;
     text-align: center;
     margin-top: 28px;
+
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
 
 /** section 3 **/
@@ -180,6 +188,9 @@ section {
 
 #section_4 > .title {
     color:black;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
 
 /** section 5 **/
@@ -195,6 +206,9 @@ section {
 
 #section_5 > .title {
     color:black;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
 
 #section5_content {
@@ -521,14 +535,14 @@ input[type="checkbox"] {
 input[type="submit"] {            
     font-weight: 400;
     font-size: 16px;
-    line-height: 48px;
     color: white;
     background-color: #0067FF;
     border-radius: 4px;
     border-width: 0px;
     cursor: pointer;
-    width: 200px;
-    height: 48px;
+
+    padding: 14px 54.5px;
+    align-self: flex-start;    
     margin-top:30px
 }
 
