@@ -36,13 +36,13 @@ body
 }
 
 #section1_text1 {
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 26px;
+    line-height: 30px;
 }
 
 #section1_text2 {
-    font-size: 110px;
-    line-height: 140px;
+    font-size: 90px;
+    line-height: 120px;
 }
 
 #section1_text3 {
@@ -52,14 +52,14 @@ body
 }
 
 #section_2 span {
-    font-size: 80px;
-    line-height: 102px;
+    font-size: 70px;
+    line-height: 90px;
 }
 
 .title {
     margin-top: 120px;
-    font-size: 72px;
-    line-height: 90px;
+    font-size: 60px;
+    line-height: 80px;
 }
 
 #section_3 {
