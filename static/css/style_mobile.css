@@ -1,0 +1,170 @@
+
+
+#gnb_wrapper {
+    top: 30px;
+    border-radius: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px; 
+    
+}
+
+#gnb_wrapper span {
+    font-size: 12px;
+    line-height: 12px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:8px;
+    margin-left:9px;
+    border-radius: 15px;
+}
+
+#section1_text1 {
+    font-size: 30px;
+    line-height: 36px;
+}
+
+#section1_text2 {
+    font-size: 110px;
+    line-height: 140px;
+}
+
+#section1_text3 {
+    font-size: 21px;
+    line-height: 26px; 
+    
+}
+
+#section_2 span {
+    font-size: 80px;
+    line-height: 102px;
+}
+
+.title {
+    margin-top: 120px;
+    font-size: 72px;
+    line-height: 90px;
+}
+
+#section_3 {
+    padding-bottom: 160px;
+}
+
+.dv_product_wrapper {
+    margin-top: 120px;
+}
+
+#section_3.dv_product_wrapper:nth-child(1) {
+    margin-top: 10px;
+}
+
+.product_text_wrapper .dv_name {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.product_text_wrapper .dv_title {
+    font-size: 30px;
+    line-height: 42px;
+}
+
+.product_text_wrapper .dv_content {
+    font-size: 15px;
+    line-height: 18px;
+}    
+
+#section_4 {
+    padding-bottom:160px;
+}
+
+#product_wrapper {
+    margin-top: 80px;
+    row-gap: 60px;
+}
+
+.item_title {
+    margin-top: 32px;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.item_content {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+
+#section5_content {
+    padding: 0 5%;
+
+}
+
+#section_5 {
+    height: auto;
+    padding-bottom: 240px;
+}
+
+#contact_wrapper_left {
+    padding-left: 40px;
+}
+
+#contact_wrapper_right {
+    padding-right: 40px;
+}
+
+#section_6 {
+    padding-top:90px;
+    padding-bottom:90px;
+}
+
+
+.carousel_cell {
+    width: 40%;
+}
+
+
+#contact_wrapper {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+footer {
+    padding : 32px 42px 32px 42px;
+}
+
+#footer_span_wrapper {
+    margin-left:30px;
+}
+
+footer span {
+    font-size: 12px;
+}
+
+.footer_content {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+footer > div:nth-child(2) {
+    margin-top:20px;
+}
+
+#copyright {
+    margin-left: 134px;
+    margin-top: 20px;
+    
+    font-size: 12px;
+    line-height: 19px;
+}
+
+input[type="submit"] {            
+    font-size: 12px;
+    line-height: 36px;
+
+    width: 160px;
+    height: 36px;
+    margin-top:30px
+}
