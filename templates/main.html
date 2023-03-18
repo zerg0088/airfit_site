@@ -360,18 +360,36 @@
         
     </section>
 
-    <!-- footer 정리 필요 -->
-    <footer>
+    <footer id="pc_footer">
         <div>
             <img id="footer_img" src="{{ my_url_for(request, 'static', path='/images/footer_logo.png')}}" alt="">
             <div id="footer_span_wrapper">
                 <span>
-                    주소<span class="footer_content" style="margin-right:33px">[04779] 서울 성동구 아차산로 38 (개풍빌딩 2층)</span> 
+                    주소<span class="footer_content margin_right_33">[04779] 서울 성동구 아차산로 38 (개풍빌딩 2층)</span> 
                     TEL<span class="footer_content">010-9986-6856</span>
                 </span>
                 <span style="margin-top:10px">
-                    대표<span class="footer_content" style="margin-right:33px">김태현</span>
-                    사업자<span class="footer_content" style="margin-right:33px">등록번호 660-88-01911</span> 
+                    대표<span class="footer_content margin_right_33">김태현</span>
+                    사업자<span class="footer_content margin_right_33">등록번호 660-88-01911</span> 
+                    E-mail<span class="footer_content">asderio@airfit.ai</span>
+                </span>
+            </div>
+        </div>
+        <div></div>
+        <span id="copyright">Copyright © 2023 AIRFIT. All rights reserved.</span>
+    </footer>
+
+    <footer id="mobile_footer">
+        <div>
+            <img id="footer_img" src="{{ my_url_for(request, 'static', path='/images/footer_logo.png')}}" alt="">
+            <div id="footer_span_wrapper">
+                <span>
+                    주소<span class="footer_content">[04779] 서울 성동구 아차산로 38 (개풍빌딩 2층)</span><br> 
+                    TEL<span class="footer_content">010-9986-6856</span>
+                </span>
+                <span style="margin-top:10px">
+                    대표<span class="footer_content">김태현</span><br>
+                    사업자 등록번호<span class="footer_content">660-88-01911</span><br>
                     E-mail<span class="footer_content">asderio@airfit.ai</span>
                 </span>
             </div>

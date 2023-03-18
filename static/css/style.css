@@ -455,7 +455,7 @@ section {
     display:flex; 
     justify-content: space-between;
     flex-direction: column;
-    padding-left:40px;
+    padding-left: 40px;
     padding-right: 92px;
     margin-top:10px;
 }
@@ -640,4 +640,17 @@ footer > div:nth-child(2) {
     line-height: 20px;
     color: #999999;
     margin-left:6px;
+}
+
+.margin_right_33 {
+    margin-right:33px;
+}
+
+
+#pc_footer {
+    display: block;   
+}
+
+#mobile_footer {
+    display: none;
 }

@@ -181,8 +181,6 @@ footer > div:nth-child(2) {
     line-height: 19px;
 }
 
-
-
 #contact_wrapper > div {
     flex-wrap: wrap;
 }
@@ -196,6 +194,13 @@ footer > div:nth-child(2) {
 #contact_wrapper_right {
     width:100%;
     padding: 0 40px;
-    margin-top:30px;
+    margin-top: 30px;
 }
 
+#pc_footer {
+    display: none;
+}
+
+#mobile_footer {
+    display: block;
+}
