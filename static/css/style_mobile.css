@@ -26,39 +26,44 @@ body
 }
 
 #gnb_wrapper span {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 12px;
     padding-left:15px;
     padding-right:15px;
-    padding-top:8px;
+    padding-top:6px;
     margin-left:9px;
     border-radius: 15px;
 }
 
 #section1_text1 {
-    font-size: 26px;
-    line-height: 30px;
+    font-size: 21px;
+    line-height: 24px;
 }
 
 #section1_text2 {
-    font-size: 90px;
-    line-height: 120px;
+    margin-top:10px;
+    font-size: 72px;
+    line-height: 96px;
 }
 
 #section1_text3 {
-    font-size: 21px;
-    line-height: 26px; 
-    
+    margin-top: 10px;
+    line-height: 20px; 
+    font-size: 14px;
+}
+
+#section_2 {
+    height: 100%;
 }
 
 #section_2 span {
-    font-size: 70px;
-    line-height: 90px;
+    font-size: 46px; 
+    line-height: 60px;
 }
 
 .title {
     margin-top: 120px;
-    font-size: 60px;
+    font-size: 50px;
     line-height: 80px;
 }
 
@@ -78,7 +83,7 @@ body
 }
 
 #section_3.dv_product_wrapper:nth-child(1) {
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .product_text_wrapper {
@@ -86,6 +91,7 @@ body
     margin: 0;
     padding: 0 20px;
 }
+
 
 .product_text_wrapper .dv_name {
     font-size: 18px;
@@ -108,26 +114,49 @@ body
 }
 
 #product_wrapper {
-    margin-top: 80px;
-    row-gap: 60px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+    margin-top: 0px;
 }
+
+.item_wrapper {
+    width: 100%;
+    margin-top: 100px;
+}
+
+.item_wrapper img {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.item_text_wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+
 
 .item_title {
     margin-top: 32px;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 30px;
 }
 
 .item_content {
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 15px;
     line-height: 18px;
 }
 
 
 #section5_content {
+    font-size: 18px;
     padding: 0 5%;
+}
 
+#logo_wrapper {
+    margin-top:80px;
 }
 
 #section_5 {
@@ -140,11 +169,16 @@ body
     padding-bottom:90px;
 }
 
-
-.carousel_cell {
-    width: 50%;
+#section6_title {
+    font-size: 50px;
+    line-height: 80px;
+    margin: auto 0;
+    text-align: center;
 }
 
+.carousel_cell {
+    width: 100%;
+}
 
 #contact_wrapper {
     padding-top: 80px;
@@ -156,7 +190,8 @@ footer {
 }
 
 #footer_span_wrapper {
-    margin-left:30px;
+    margin-left:0px;
+    margin-top:30px;
 }
 
 footer span {
@@ -168,14 +203,16 @@ footer span {
     line-height: 16px;
 }
 
-
 footer > div:nth-child(2) {
-    margin-top:20px;
+    margin-top:30px;
+}
+#footer_img {
+    display: block;
 }
 
 #copyright {
-    margin-left: 134px;
-    margin-top: 20px;
+    margin-left: 0px;
+    margin-top: 30px;
     
     font-size: 12px;
     line-height: 19px;
@@ -184,7 +221,6 @@ footer > div:nth-child(2) {
 #contact_wrapper > div {
     flex-wrap: wrap;
 }
-
 
 #contact_wrapper_left {    
     width:100%;
@@ -203,4 +239,16 @@ footer > div:nth-child(2) {
 
 #mobile_footer {
     display: block;
+}
+
+#contact_pc {
+    display: none;
+}
+
+#contact_mobile {
+    display: block;
+}
+
+#gnb_logo {
+    display: none;
 }

@@ -173,6 +173,7 @@ section {
     font-size: 20px;
     line-height: 25px;
     margin-top:20px;
+    color: #dddddd;
 }    
 
 /** section 4 **/
@@ -210,7 +211,7 @@ section {
     font-size: 24px;
     line-height: 30px;
     margin-top:19px;
-    color:black;
+    color:#555555;
 }
 
 #logo_wrapper {
@@ -331,7 +332,7 @@ section {
 }
 
 .item_content {
-    color:black;
+    color:#555555;
     margin-top: 10px;
     font-weight: 400;
     font-size: 20px;
@@ -366,10 +367,7 @@ section {
 .carousel_cell {
     width: 18%;
     border-left: 1px solid #DDDDDD;
-    padding-top:24px;
-    padding-bottom:24px;
-    padding-left: 12px;
-    padding-right:12px;
+    padding: 24px 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -379,6 +377,7 @@ section {
     margin: 0 auto;
     display: block;
     width: calc(100% - 24px);
+    border: 1px solid #EDEDED;
 }
 
 .carousel_cell_title {
@@ -400,7 +399,6 @@ section {
     font-weight: 400;
     font-size: 18px;
     line-height: 23px;
-    
     color: #343434;
     word-wrap: break-word;
     width: calc(100% - 24px);
@@ -434,19 +432,37 @@ section {
     flex-direction: row;
 }
 
+#contact_pc {
+    display: block;
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    margin-top: 21px;
+    font-style: normal;
+    line-height: 22px;
+    color: #747474;
+    display: block;
+}
+
+#contact_mobile {
+    display: none;
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    margin-top: 21px;
+    font-style: normal;
+    line-height: 22px;
+    color: #747474;
+    display: block;
+}
+
 #contact_wrapper_left > span:nth-child(1) {
     font-weight: 700;
     font-size: 36px;
     line-height: 45px;
     font-style: normal;
-    color: white;
-}
-
-#contact_wrapper_left > span:nth-child(2) {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 23px;
-    margin-top: 21px;
     color: white;
 }
 
@@ -460,14 +476,6 @@ section {
     margin-top:10px;
 }
 
-#contact_wrapper_left span {
-    font-style: normal;
-    
-    font-size: 18px;
-    line-height: 22px;
-    color: #747474;
-    display: block;
-}
 
 #contact_wrapper_left img {
     width: 35px; 
@@ -514,11 +522,11 @@ textarea {
 }
 
 input::placeholder {
-    color: white;
+    color: #999999;
 }
 
 textarea::placeholder {
-    color: white;
+    color: #999999;
 }
     
 textarea:hover,input:hover {
